@@ -1,4 +1,3 @@
 # sanjayrajsingh.github.io
-if (window.location.href==="https://xyz.github.io") {
-    window.location.href = "https://mycustomdomain.com"; 
-}
+This is a github repository for storing files. 
+Please access https://ssingh.ucdavis.edu for Sanjay R Singh's academic webpage.
