@@ -39,16 +39,16 @@
       padding: 0 24px 48px;
     }
 
-    .hero {
-      background: #efefef;
-      display: grid;
-      grid-template-columns: 360px minmax(0, 1fr);
-      gap: 64px;
-      align-items: start;
-      padding: 20px 28px 30px;
-      margin: 0 -24px 0;
-      border-bottom: 1px solid var(--line);
-    }
+   .hero {
+  background: #efefef;
+  display: grid;
+  grid-template-columns: minmax(280px, 320px) minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 64px);
+  align-items: start;
+  padding: 20px 28px 30px;
+  margin: 0 -24px 0;
+  border-bottom: 1px solid var(--line);
+}
 
     .hero-left {
       display: flex;
@@ -57,16 +57,16 @@
     }
 
     .portrait {
-      width: 308px;
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin-bottom: 24px;
-      border: none;
-      border-radius: 0;
-      object-fit: cover;
-      background: #f8fafc;
-    }
+  width: 100%;
+  max-width: 308px;
+  height: auto;
+  display: block;
+  margin-bottom: 24px;
+  border: none;
+  border-radius: 0;
+  object-fit: cover;
+  background: #f8fafc;
+}
 
     .icon-row {
       display: flex;
@@ -225,7 +225,7 @@
       font-size: 0.93rem;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 760px) {
       .wrapper { padding: 0 18px 40px; }
 
       .hero {
@@ -238,6 +238,7 @@
 
       .portrait {
         width: 220px;
+        max-width: 100%;
         margin-bottom: 18px;
       }
 
