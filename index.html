@@ -6,246 +6,341 @@
   <title>Sanjay Raj Singh</title>
   <style>
     :root {
-      --text: #1f2937;
+      --text: #222222;
       --muted: #4b5563;
       --light: #6b7280;
       --line: #e5e7eb;
       --bg: #ffffff;
-      --link: #1d4ed8;
-      --link-hover: #1e40af;
+      --link: #0b6e99;
+      --link-hover: #084c6a;
       --accent: #111827;
-      --max: 980px;
+      --max: 1120px;
     }
+
     * { box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: Georgia, "Times New Roman", Times, serif;
+      font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background: var(--bg);
-      line-height: 1.55;
+      line-height: 1.5;
     }
-    a { color: var(--link); text-decoration: none; }
-    a:hover { color: var(--link-hover); text-decoration: underline; }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
+    }
+
     .topbar {
       display: none;
     }
-    .nav {
+
+    .wrapper {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 0.9rem 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
+      padding: 0 24px 48px;
     }
-    .brand {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 0.01em;
-    }
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      font-size: 0.98rem;
-    }
-    .wrapper {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
-    }
+
     .hero {
+      background: #efefef;
       display: grid;
       grid-template-columns: 520px 1fr;
-      gap: 5.25rem;
+      gap: 72px;
       align-items: start;
-      padding: 1.35rem 0 2.35rem;
+      padding: 20px 28px 30px;
+      margin: 0 -24px 0;
       border-bottom: 1px solid var(--line);
-      background: #f3f4f6;
-      margin: 0 -1.5rem 0;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
     }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
     .portrait {
-      width: 100%;
-      max-width: 308px;
-      aspect-ratio: 1 / 1.18;
-      object-fit: cover;
+      width: 308px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 24px;
       border: none;
       border-radius: 0;
+      object-fit: cover;
       background: #f8fafc;
-      display: block;
-      margin-bottom: 2rem;
-      box-shadow: none;
     }
+
+    .icon-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .social-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .cv-bubble {
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      background: #5d8ee6;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .cv-word {
+      color: #1f3b82;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: 38px;
+      font-weight: 400;
+      line-height: 1;
+      margin-left: -4px;
+    }
+
+    .seal {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid #bfc3c8;
+      background: #ffffff;
+      color: #4b5563;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .seal.ucd {
+      border-color: #d6b24d;
+      color: #b08a12;
+    }
+
+    .social {
+      width: 46px;
+      height: 46px;
+      border-radius: 4px;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .social.x {
+      background: #40a7f4;
+    }
+
+    .social.in {
+      background: #2c66b8;
+      font-size: 18px;
+    }
+
+    .hero-right {
+      padding-top: 6px;
+      font-size: 18px;
+    }
+
     h1 {
-      margin: 0 0 0.55rem;
-      font-size: 1.95rem;
-      line-height: 1.12;
+      margin: 0 0 14px;
+      font-size: 18px;
+      line-height: 1.2;
       color: var(--accent);
       font-weight: 400;
       letter-spacing: 0;
     }
-    .subtitle {
-      font-size: 1.06rem;
-      color: var(--muted);
-      margin-bottom: 1.2rem;
-      display: none;
-    }
+
     .affiliations {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1.8rem;
-      margin: 0.6rem 0 1.4rem;
+      gap: 22px;
+      margin: 0 0 20px;
     }
+
     .affiliation {
-      padding-left: 0;
-      border-left: none;
-      font-size: 0.98rem;
+      font-size: 18px;
       font-weight: 400;
+      color: var(--text);
     }
+
     .affiliation strong {
       display: block;
-      color: var(--accent);
-      margin-bottom: 0.12rem;
-      font-weight: 500;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 2px;
     }
+
     .quick-links {
       display: flex;
       flex-direction: column;
-      gap: 0.32rem;
-      flex-wrap: nowrap;
-      margin-top: 1.15rem;
-      font-size: 0.98rem;
+      gap: 6px;
       align-items: flex-start;
+      font-size: 18px;
+      margin-top: 4px;
     }
+
     .section {
-      padding: 1.9rem 0 0.8rem;
+      padding: 30px 0 12px;
       border-bottom: 1px solid var(--line);
     }
 
     .section.top-follow {
-      padding-top: 1.35rem;
+      padding-top: 28px;
     }
-    .section:last-of-type { border-bottom: none; }
+
+    .section:last-of-type {
+      border-bottom: none;
+    }
+
     h2 {
       font-size: 1.45rem;
       margin: 0 0 1rem;
       color: var(--accent);
+      font-weight: 600;
+      font-family: Georgia, "Times New Roman", Times, serif;
     }
-    p { margin: 0.4rem 0 0.9rem; }
-    ol.publications, ol.events, ol.media {
+
+    p {
+      margin: 0.4rem 0 0.9rem;
+    }
+
+    ol.publications,
+    ol.events,
+    ol.media {
       margin: 0.3rem 0 0;
       padding-left: 1.35rem;
     }
-    ol.publications li, ol.events li, ol.media li {
+
+    ol.publications li,
+    ol.events li,
+    ol.media li {
       margin: 0 0 0.9rem;
       padding-left: 0.2rem;
     }
-    .paper-title, .event-title {
+
+    .paper-title,
+    .event-title {
       font-weight: 600;
       color: var(--accent);
     }
-    .coauthors, .venue, .extra {
+
+    .coauthors,
+    .venue,
+    .extra {
       color: var(--muted);
       font-size: 0.97rem;
     }
+
     .small-links {
       margin-top: 0.2rem;
       font-size: 0.95rem;
     }
+
     .footer {
       padding-top: 1.75rem;
       color: var(--light);
       font-size: 0.93rem;
     }
+
     @media (max-width: 900px) {
+      .wrapper {
+        padding: 0 18px 40px;
+      }
+
       .hero {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 28px;
         margin: 0;
-        padding-left: 0;
-        padding-right: 0;
+        padding: 24px 0;
         background: transparent;
       }
 
       .portrait {
-        max-width: 220px;
-        margin-bottom: 1.25rem;
+        width: 220px;
+        margin-bottom: 18px;
       }
 
-      .wrapper {
-        max-width: 980px;
+      .hero-right,
+      .affiliation,
+      .quick-links {
+        font-size: 16px;
       }
 
-      h1 { font-size: 1.85rem; }
-    }
-
-      .portrait {
-        max-width: 220px;
-        margin-bottom: 1.25rem;
+      h1 {
+        font-size: 26px;
+        margin-bottom: 12px;
       }
 
-      .wrapper {
-        max-width: 980px;
+      .cv-word {
+        font-size: 32px;
       }
 
-      h1 { font-size: 1.9rem; }
-    }
-      .portrait { max-width: 180px; }
-      .affiliations { grid-template-columns: 1fr; }
-      h1 { font-size: 1.95rem; }
+      .section.top-follow {
+        padding-top: 18px;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <nav class="nav">
-      <div class="brand">Sanjay Raj Singh</div>
-      <div class="nav-links">
-        <a href="#about">Home</a>
-        <a href="https://sanjayrajsingh.github.io/files/CV_SinghSanjay.pdf" target="_blank" rel="noopener noreferrer">Curriculum Vitae</a>
-      </div>
-    </nav>
-  </header>
+  <header class="topbar"></header>
 
   <main class="wrapper">
     <section class="hero" id="about">
-      <div>
+      <div class="hero-left">
         <img class="portrait" src="files/profile.jpg" alt="Portrait of Sanjay Raj Singh" />
-        <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
-          <a href="https://sanjayrajsingh.github.io/files/CV_SinghSanjay.pdf" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:0.55rem; text-decoration:none; color:#19316b;">
-            <span style="width:36px; height:36px; border-radius:999px; background:#4f83e3; display:inline-flex; align-items:center; justify-content:center; color:white; font-size:1rem; font-weight:700;">CV</span>
-            <span style="font-size:1.95rem; font-weight:400; letter-spacing:0;">CV</span>
-          </a>
-          <a href="https://www.frbsf.org/economic-research/economists/sanjay-singh/" target="_blank" rel="noopener noreferrer" style="display:inline-flex; width:42px; height:42px; border-radius:999px; border:1px solid #cfcfcf; align-items:center; justify-content:center; font-size:0.72rem; color:#111827; text-decoration:none; background:white;">SF</a>
-          <a href="https://economics.ucdavis.edu/people/srsi" target="_blank" rel="noopener noreferrer" style="display:inline-flex; width:42px; height:42px; border-radius:999px; border:1px solid #d2b75f; align-items:center; justify-content:center; font-size:0.72rem; color:#8a6b00; text-decoration:none; background:white;">UCD</a>
+
+        <div class="icon-row">
+          <a class="icon-link cv-bubble" href="https://sanjayrajsingh.github.io/files/CV_SinghSanjay.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+          <a class="icon-link cv-word" href="https://sanjayrajsingh.github.io/files/CV_SinghSanjay.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+          <a class="icon-link seal" href="https://www.frbsf.org/economic-research/economists/sanjay-singh/" target="_blank" rel="noopener noreferrer">SF</a>
+          <a class="icon-link seal ucd" href="https://economics.ucdavis.edu/people/srsi" target="_blank" rel="noopener noreferrer">UCD</a>
         </div>
-        <div style="display:flex; gap:0.8rem; margin-top:1rem; align-items:center;">
-          <a href="https://twitter.com/sanjayrajsingh" target="_blank" rel="noopener noreferrer" style="display:inline-flex; width:46px; height:46px; border-radius:6px; background:#3b82f6; align-items:center; justify-content:center; color:white; font-size:1.05rem; font-weight:700; text-decoration:none;">X</a>
-          <a href="https://www.linkedin.com/in/time-series/" target="_blank" rel="noopener noreferrer" style="display:inline-flex; width:46px; height:46px; border-radius:6px; background:#2563eb; align-items:center; justify-content:center; color:white; font-size:1rem; font-weight:700; text-decoration:none;">in</a>
+
+        <div class="social-row">
+          <a class="icon-link social x" href="https://twitter.com/sanjayrajsingh" target="_blank" rel="noopener noreferrer">X</a>
+          <a class="icon-link social in" href="https://www.linkedin.com/in/time-series/" target="_blank" rel="noopener noreferrer">in</a>
         </div>
       </div>
-      <div>
+
+      <div class="hero-right">
         <h1>Sanjay Raj Singh</h1>
 
         <div class="affiliations">
           <div class="affiliation">
             <strong>Research Advisor</strong>
             Federal Reserve Bank of San Francisco<br>
-            San Francisco, CA 94105<br>
+            San Francisco CA 94105<br>
             Email: <a href="mailto:sanjay.singh@sf.frb.org">sanjay.singh@sf.frb.org</a><br>
-            Phone: (415) 974-3018
+            Phone: (415)-974-3018
           </div>
+
           <div class="affiliation">
             <strong>Associate Professor</strong>
             Department of Economics<br>
-            University of California, Davis<br>
-            Davis, CA 95616<br>
+            University of California<br>
+            Davis CA 95616<br>
             Email: <a href="mailto:sjrsingh@ucdavis.edu">sjrsingh@ucdavis.edu</a><br>
-            Phone: (530) 752-9938
+            Phone: (530)-752-9938
           </div>
         </div>
 
@@ -257,8 +352,18 @@
     </section>
 
     <section class="section top-follow">
-      <p style="margin:0 0 1rem; font-size:1.02rem;"><strong><a href="https://sanjayrajsingh.github.io/files/ResearchStatement_Singh.pdf" target="_blank" rel="noopener noreferrer" style="color:var(--accent); text-decoration:underline;">Research Statement</a></strong> <a href="https://sanjayrajsingh.github.io/files/ResearchStatement_Singh.pdf" target="_blank" rel="noopener noreferrer">PDF</a> [July 2023]</p>
-      <p style="margin:0 0 0.5rem; font-size:1.02rem;"><strong>Research Interests:</strong> Macroeconomics, International Finance, Productivity Growth</p>
+      <p style="margin:0 0 1rem; font-size:1.02rem;">
+        <strong>
+          <a href="https://sanjayrajsingh.github.io/files/ResearchStatement_Singh.pdf" target="_blank" rel="noopener noreferrer" style="color:#222; text-decoration:underline;">
+            Research Statement
+          </a>
+        </strong>
+        <a href="https://sanjayrajsingh.github.io/files/ResearchStatement_Singh.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+        [July 2023]
+      </p>
+      <p style="margin:0 0 0.5rem; font-size:1.02rem;">
+        <strong>Research Interests:</strong> Macroeconomics, International Finance, Productivity Growth
+      </p>
     </section>
 
     <section class="section">
