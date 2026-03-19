@@ -39,16 +39,16 @@
       padding: 0 24px 48px;
     }
 
-   .hero {
-  background: #efefef;
-  display: grid;
-  grid-template-columns: minmax(280px, 320px) minmax(0, 1fr);
-  gap: clamp(28px, 4vw, 64px);
-  align-items: start;
-  padding: 20px 28px 30px;
-  margin: 0 -24px 0;
-  border-bottom: 1px solid var(--line);
-}
+    .hero {
+      background: #efefef;
+      display: grid;
+      grid-template-columns: 360px minmax(0, 1fr);
+      gap: 64px;
+      align-items: start;
+      padding: 20px 28px 30px;
+      margin: 0 -24px 0;
+      border-bottom: 1px solid var(--line);
+    }
 
     .hero-left {
       display: flex;
@@ -57,16 +57,16 @@
     }
 
     .portrait {
-  width: 100%;
-  max-width: 308px;
-  height: auto;
-  display: block;
-  margin-bottom: 24px;
-  border: none;
-  border-radius: 0;
-  object-fit: cover;
-  background: #f8fafc;
-}
+      width: 308px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 24px;
+      border: none;
+      border-radius: 0;
+      object-fit: cover;
+      background: #f8fafc;
+    }
 
     .icon-row {
       display: flex;
@@ -84,47 +84,46 @@
       flex-shrink: 0;
     }
 
-    .cv-badge {
-      height: 44px;
-      padding: 0 18px;
-      border-radius: 999px;
-      background: #5d8ee6;
-      color: #ffffff;
-      font-size: 24px;
-      font-family: Georgia, "Times New Roman", Times, serif;
-      font-weight: 400;
-      line-height: 1;
+    .icon-image-link {
+      line-height: 0;
     }
 
-    .seal {
+    .icon-image {
+      display: block;
+      object-fit: contain;
+    }
+
+    .cv-icon {
+      height: 44px;
+      width: auto;
+    }
+
+    .round-icon {
       width: 42px;
       height: 42px;
       border-radius: 999px;
-      border: 1px solid #bfc3c8;
-      background: #ffffff;
-      color: #4b5563;
-      font-size: 10px;
-      font-weight: 700;
-      line-height: 1;
     }
 
-    .seal.ucd {
-      border-color: #d6b24d;
-      color: #b08a12;
-    }
-
-    .social {
+    .square-icon {
       width: 42px;
       height: 42px;
       border-radius: 4px;
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 18px;
-      line-height: 1;
     }
 
-    .social.x { background: #40a7f4; }
-    .social.in { background: #2c66b8; font-size: 17px; }
+    .inline-scholar-icon {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+      vertical-align: middle;
+    }
+
+    .scholar-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    
 
     .hero-right {
       padding-top: 6px;
@@ -225,9 +224,8 @@
       font-size: 0.93rem;
     }
 
-    @media (max-width: 760px) {
+    @media (max-width: 900px) {
       .wrapper { padding: 0 18px 40px; }
-
       .hero {
         grid-template-columns: 1fr;
         gap: 28px;
@@ -235,39 +233,28 @@
         padding: 24px 0;
         background: transparent;
       }
-
       .portrait {
         width: 220px;
-        max-width: 100%;
         margin-bottom: 18px;
       }
-
-      .icon-row {
-        flex-wrap: wrap;
-        white-space: normal;
-      }
-
-      .hero-right, .affiliation, .quick-links {
-        font-size: 16px;
-      }
-
-      h1 {
-        font-size: 26px;
-        margin-bottom: 12px;
-      }
-
-      .cv-badge {
-        font-size: 22px;
-      }
-
-      .section.top-follow {
-        padding-top: 18px;
-      }
+      .icon-row { flex-wrap: wrap; white-space: normal; }
+      .hero-right, .affiliation, .quick-links { font-size: 16px; }
+      h1 { font-size: 26px; margin-bottom: 12px; }
+      .cv-badge { font-size: 22px; }
+      .section.top-follow { padding-top: 18px; }
     }
   </style>
 </head>
 <body>
-  <header class="topbar"></header>
+  <header class="topbar">
+    <nav class="nav">
+      <div class="brand">Sanjay Raj Singh</div>
+      <div class="nav-links">
+        <a href="#about">Home</a>
+        <a href="https://sanjayrajsingh.github.io/files/CV_SinghSanjay.pdf" target="_blank" rel="noopener noreferrer">Curriculum Vitae</a>
+      </div>
+    </nav>
+  </header>
 
   <main class="wrapper">
     <section class="hero" id="about">
@@ -275,11 +262,11 @@
         <img class="portrait" src="files/profile.jpg" alt="Portrait of Sanjay Raj Singh" />
 
         <div class="icon-row">
-          <a class="icon-link cv-badge" href="https://sanjayrajsingh.github.io/files/CV_SinghSanjay.pdf" target="_blank" rel="noopener noreferrer">CV</a>
-          <a class="icon-link seal" href="https://www.frbsf.org/economic-research/economists/sanjay-singh/" target="_blank" rel="noopener noreferrer">SF</a>
-          <a class="icon-link seal ucd" href="https://economics.ucdavis.edu/people/srsi" target="_blank" rel="noopener noreferrer">UCD</a>
-          <a class="icon-link social x" href="https://twitter.com/sanjayrajsingh" target="_blank" rel="noopener noreferrer">X</a>
-          <a class="icon-link social in" href="https://www.linkedin.com/in/time-series/" target="_blank" rel="noopener noreferrer">in</a>
+          <a class="icon-link icon-image-link" href="https://sanjayrajsingh.github.io/files/CV_SinghSanjay.pdf" target="_blank" rel="noopener noreferrer"><img class="icon-image cv-icon" src="web/cv.png" alt="CV"></a>
+          <a class="icon-link icon-image-link" href="https://www.frbsf.org/economic-research/economists/sanjay-singh/" target="_blank" rel="noopener noreferrer"><img class="icon-image round-icon" src="web/sf.png" alt="SF Fed"></a>
+          <a class="icon-link icon-image-link" href="https://economics.ucdavis.edu/people/srsi" target="_blank" rel="noopener noreferrer"><img class="icon-image round-icon" src="web/ucd.png" alt="UC Davis"></a>
+          <a class="icon-link icon-image-link" href="https://twitter.com/sanjayrajsingh" target="_blank" rel="noopener noreferrer"><img class="icon-image square-icon" src="web/x.png" alt="X"></a>
+          <a class="icon-link icon-image-link" href="https://www.linkedin.com/in/time-series/" target="_blank" rel="noopener noreferrer"><img class="icon-image square-icon" src="web/linkedin.png" alt="LinkedIn"></a>
         </div>
       </div>
 
@@ -307,24 +294,14 @@
 
         <div class="quick-links">
           <a href="https://sanjayrajsingh.github.io/files/CV_SinghSanjay.pdf" target="_blank" rel="noopener noreferrer">Curriculum Vitae</a>
-          <a href="https://scholar.google.com/citations?hl=en&user=w8Iq8XgAAAAJ&view_op=list_works&authuser=1&gmla=AJsN-F5zNoHjY8OoxRoZPpSuayo6_2nQtAcJ97AqHFF5ho9jQz_r1hDlJkCuj9k7qpKsiW28a3HXGL6aGOHs2lRzgjdj9TMtWVNJokuyDTnneOVFhaaHEQc" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          <a class="scholar-link" href="https://scholar.google.com/citations?hl=en&user=w8Iq8XgAAAAJ&view_op=list_works&authuser=1&gmla=AJsN-F5zNoHjY8OoxRoZPpSuayo6_2nQtAcJ97AqHFF5ho9jQz_r1hDlJkCuj9k7qpKsiW28a3HXGL6aGOHs2lRzgjdj9TMtWVNJokuyDTnneOVFhaaHEQc" target="_blank" rel="noopener noreferrer"><img class="inline-scholar-icon" src="web/gs.png" alt="Google Scholar"> <span>Google Scholar</span></a>
         </div>
       </div>
     </section>
 
     <section class="section top-follow">
-      <p style="margin:0 0 1rem; font-size:1.02rem;">
-        <strong>
-          <a href="https://sanjayrajsingh.github.io/files/ResearchStatement_Singh.pdf" target="_blank" rel="noopener noreferrer" style="color:#222; text-decoration:underline;">
-            Research Statement
-          </a>
-        </strong>
-        <a href="https://sanjayrajsingh.github.io/files/ResearchStatement_Singh.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
-        [July 2023]
-      </p>
-      <p style="margin:0 0 0.5rem; font-size:1.02rem;">
-        <strong>Research Interests:</strong> Macroeconomics, International Finance, Productivity Growth
-      </p>
+      <p style="margin:0 0 1rem; font-size:1.02rem;"><strong><a href="https://sanjayrajsingh.github.io/files/ResearchStatement_Singh.pdf" target="_blank" rel="noopener noreferrer" style="color:var(--accent); text-decoration:underline;">Research Statement</a></strong> <a href="https://sanjayrajsingh.github.io/files/ResearchStatement_Singh.pdf" target="_blank" rel="noopener noreferrer">PDF</a> [July 2023]</p>
+      <p style="margin:0 0 0.5rem; font-size:1.02rem;"><strong>Research Interests:</strong> Macroeconomics, International Finance, Productivity Growth</p>
     </section>
 
     <section class="section">
