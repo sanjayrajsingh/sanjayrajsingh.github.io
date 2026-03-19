@@ -14,7 +14,7 @@
       --link: #0b6e99;
       --link-hover: #084c6a;
       --accent: #111827;
-      --sidebar-width: 260px;
+      --sidebar-width: 320px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -88,73 +88,66 @@
     /* Icon links row */
     .icon-links {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 14px;
+      flex-wrap: nowrap;
+      gap: 10px;
+      margin-bottom: 22px;
+      align-items: center;
     }
 
     .icon-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
+      text-decoration: none;
+      opacity: 0.88;
+      transition: opacity 0.15s;
+    }
+    .icon-link:hover { opacity: 1; text-decoration: none; }
+
+    .icon-link img {
       width: 40px;
       height: 40px;
-      border-radius: 50%;
-      font-size: 11px;
-      font-weight: 700;
-      text-decoration: none;
-      border: 1px solid #ccc;
-      background: #fff;
-      color: #333;
-      flex-shrink: 0;
-    }
-    .icon-link:hover { background: #f0f4ff; text-decoration: none; }
-
-    .icon-link.gs  { background: #4285f4; color: #fff; border-color: #4285f4; font-size: 10px; }
-    .icon-link.cv  { background: #5d8ee6; color: #fff; border-color: #5d8ee6; }
-    .icon-link.sf  { background: #c8102e; color: #fff; border-color: #c8102e; font-size: 10px; }
-    .icon-link.ucd { background: #022851; color: #ffd200; border-color: #022851; font-size: 10px; }
-    .icon-link.tw  { background: #1da1f2; color: #fff; border-color: #1da1f2; font-size: 13px; }
-    .icon-link.li  { background: #0077b5; color: #fff; border-color: #0077b5; font-size: 13px; }
-
-    /* ── Main content ── */
-    .main {
-      padding: 28px 36px 60px 36px;
-      max-width: 860px;
+      display: block;
     }
 
-    .site-name {
-      font-size: 22px;
+    /* ── Sidebar name / affiliations / quick-links ── */
+    .sidebar-name {
+      font-size: 18px;
       font-weight: 700;
       color: var(--accent);
-      margin-bottom: 22px;
+      margin-bottom: 16px;
     }
 
-    /* Affiliations block */
-    .affiliations {
+    .sidebar .affiliations {
       display: flex;
       flex-direction: column;
-      gap: 18px;
-      margin-bottom: 24px;
+      gap: 16px;
+      margin-bottom: 16px;
     }
 
-    .affiliation {
-      font-size: 14.5px;
+    .sidebar .affiliation {
+      font-size: 13.5px;
       line-height: 1.65;
       color: var(--text);
     }
-    .affiliation .role {
+    .sidebar .affiliation .role {
       font-weight: 700;
       display: block;
       margin-bottom: 1px;
     }
 
-    .quick-links {
+    .sidebar .quick-links {
       display: flex;
       flex-direction: column;
       gap: 5px;
-      margin-bottom: 28px;
-      font-size: 14.5px;
+      font-size: 13.5px;
+    }
+
+    /* ── Main content ── */
+    .main {
+      padding: 28px 36px 60px 36px;
+      max-width: 860px;
     }
 
     /* ── Divider between affiliations and research content ── */
@@ -225,7 +218,7 @@
     }
 
     /* ── Responsive ── */
-    @media (max-width: 780px) {
+    @media (max-width: 860px) {
       .page-body {
         grid-template-columns: 1fr;
       }
@@ -234,14 +227,11 @@
         border-right: none;
         border-bottom: 1px solid var(--line);
         padding: 20px;
-        display: flex;
-        gap: 20px;
-        align-items: flex-start;
         max-height: none;
       }
       .portrait {
-        max-width: 120px;
-        margin-bottom: 0;
+        max-width: 160px;
+        margin-bottom: 14px;
       }
       .main {
         padding: 20px;
@@ -262,26 +252,21 @@
 
   <div class="page-body">
 
-    <!-- Left sidebar: photo + icons -->
+    <!-- Left sidebar: photo + icons + name + affiliations -->
     <aside class="sidebar">
       <img class="portrait" src="files/profile.jpg" alt="Sanjay Raj Singh" />
 
       <div class="icon-links">
-        <a class="icon-link gs"  href="https://scholar.google.com/citations?hl=en&user=w8Iq8XgAAAAJ" target="_blank" rel="noopener noreferrer" title="Google Scholar">GS</a>
-        <a class="icon-link cv"  href="https://sanjayrajsingh.github.io/files/CV_SinghSanjay.pdf"  target="_blank" rel="noopener noreferrer" title="Curriculum Vitae">CV</a>
-        <a class="icon-link sf"  href="https://www.frbsf.org/economic-research/economists/sanjay-singh/" target="_blank" rel="noopener noreferrer" title="SF Fed">SF</a>
-        <a class="icon-link ucd" href="https://economics.ucdavis.edu/people/srsi" target="_blank" rel="noopener noreferrer" title="UC Davis">UCD</a>
-        <a class="icon-link tw"  href="https://twitter.com/sanjayrajsingh" target="_blank" rel="noopener noreferrer" title="Twitter/X">&#x1D54F;</a>
-        <a class="icon-link li"  href="https://www.linkedin.com/in/time-series/" target="_blank" rel="noopener noreferrer" title="LinkedIn">in</a>
+        <a class="icon-link" href="https://scholar.google.com/citations?hl=en&user=w8Iq8XgAAAAJ" target="_blank" rel="noopener noreferrer" title="Google Scholar"><img src="web/gs.png" alt="Google Scholar"></a>
+        <a class="icon-link" href="https://sanjayrajsingh.github.io/files/CV_SinghSanjay.pdf"  target="_blank" rel="noopener noreferrer" title="Curriculum Vitae"><img src="web/cv.png" alt="CV"></a>
+        <a class="icon-link" href="https://www.frbsf.org/economic-research/economists/sanjay-singh/" target="_blank" rel="noopener noreferrer" title="SF Fed"><img src="web/sf.png" alt="SF Fed"></a>
+        <a class="icon-link" href="https://economics.ucdavis.edu/people/srsi" target="_blank" rel="noopener noreferrer" title="UC Davis"><img src="web/ucd.png" alt="UC Davis"></a>
+        <a class="icon-link" href="https://twitter.com/sanjayrajsingh" target="_blank" rel="noopener noreferrer" title="Twitter/X"><img src="web/x.png" alt="X / Twitter"></a>
+        <a class="icon-link" href="https://www.linkedin.com/in/time-series/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><img src="web/linkedin.png" alt="LinkedIn"></a>
       </div>
-    </aside>
 
-    <!-- Main content: everything on the right -->
-    <main class="main">
+      <div class="sidebar-name">Sanjay Raj Singh</div>
 
-      <div class="site-name">Sanjay Raj Singh</div>
-
-      <!-- Affiliations -->
       <div class="affiliations">
         <div class="affiliation">
           <span class="role">Research Advisor</span>
@@ -290,7 +275,6 @@
           Email: <a href="mailto:Sanjay.Singh@sf.frb.org">Sanjay.Singh@sf.frb.org</a><br>
           Phone: (415)-974-3018
         </div>
-
         <div class="affiliation">
           <span class="role">Associate Professor</span>
           Department of Economics<br>
@@ -301,13 +285,14 @@
         </div>
       </div>
 
-      <!-- CV / Scholar quick links -->
       <div class="quick-links">
         <a href="https://sanjayrajsingh.github.io/files/CV_SinghSanjay.pdf" target="_blank" rel="noopener noreferrer">Curriculum Vitae</a>
         <a href="https://scholar.google.com/citations?hl=en&user=w8Iq8XgAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
       </div>
+    </aside>
 
-      <hr class="section-divider">
+    <!-- Main content: research sections -->
+    <main class="main">
 
       <!-- Research statement + interests -->
       <div class="intro-block">
@@ -572,6 +557,7 @@
             Eggertsson, Mehrotra, Singh, &amp; Summers, <strong>"A Contagious Malady? Open Economy Dimensions of Secular Stagnation"</strong>
             <a href="https://sanjayrajsingh.github.io/files/ssopen.pdf" target="_blank" rel="noopener noreferrer">published draft</a><br>
             <span class="small-links">Covered by <a href="https://www.washingtonpost.com/news/wonk/wp/2016/07/07/the-world-economy-is-turning-japanese/" target="_blank" rel="noopener noreferrer">Washington Post</a>, <a href="https://archive.nytimes.com/krugman.blogs.nytimes.com/2016/06/20/tldr-and-modern-macroeconomics-wonkish/" target="_blank" rel="noopener noreferrer">Paul Krugman's Blog at NY Times</a>, <a href="https://economistsview.typepad.com/economistsview/2016/06/a-contagious-malady-open-economy-dimensions-of-secular-stagnation.html" target="_blank" rel="noopener noreferrer">Economist's View</a></span>
+          </l
           </li>
         </ol>
       </section>
