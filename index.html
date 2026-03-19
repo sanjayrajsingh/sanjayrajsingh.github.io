@@ -1,1 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanjay R Singh</title>
+  <style>
+    :root {
+      --text: #222222;
+      --muted: #4b5563;
+      --light: #6b7280;
+      --line: #e0e0e0;
+      --bg: #ffffff;
+      --link: #0b6e99;
+      --link-hover: #084c6a;
+      --accent: #111827;
+      --sidebar-width: 260px;
+    }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+      font-size: 15px;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+    a:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
+    }
+
+    /* ── Top nav bar ── */
+    .topbar {
+      background: #f8f9fa;
+      border-bottom: 1px solid var(--line);
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      height: 48px;
+    }
+    .topbar-name {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .topbar-name:hover { text-decoration: none; color: var(--accent); }
+    .topbar nav { display: flex; gap: 20px; align-items: center; }
+    .topbar nav a { font-size: 14px; color: var(--muted); }
+    .topbar nav a:hover { color: var(--link); text-decoration: none; }
+
+    /* ── Page body: sidebar + main ── */
+    .page-body {
+      display: grid;
+      grid-template-columns: var(--sidebar-width) 1fr;
+      min-height: calc(100vh - 48px);
+      align-items: start;
+    }
+
+    /* ── Left sidebar ── */
+    .sidebar {
+      padding: 28px 20px 40px 28px;
+      border-right: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      max-height: 100vh;
+      overflow-y: auto;
+    }
+
+    .portrait {
+      width: 100%;
+      max-width: 210px;
+      height: auto;
+      display: block;
+      margin-bottom: 18px;
+    }
+
+    /* Icon links row */
+    .icon-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid #ccc;
+      background: #fff;
+      color: #333;
+      flex-shrink: 0;
+    }
+    .icon-link:hover { background: #f0f4ff; text-decoration: none; }
+
+    .icon-link.gs  { background: #4285f4; color: #fff; border-color: #4285f4; font-size: 10px; }
+    .icon-link.cv  { background: #5d8ee6; color: #fff; border-color: #5d8ee6; }
+    .icon-link.sf  { background: #c8102e; color: #fff; border-color: #c8102e; font-size: 10px; }
+    .icon-link.ucd { background: #022851; color: #ffd200; border-color: #022851; font-size: 10px; }
+    .icon-link.tw  { background: #1da1f2; color: #fff; border-color: #1da1f2; font-size: 13px; }
+    .icon-link.li  { background: #0077b5; color: #fff; border-color: #0077b5; font-size: 13px; }
+
+    /* ── Main content ── */
+    .main {
+      padding: 28px 36px 60px 36px;
+      max-width: 860px;
+    }
+
+    .site-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 22px;
+    }
+
+    /* Affiliations block */
+    .affiliations {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .affiliation {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: var(--text);
+    }
+    .affiliation .role {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 1px;
+    }
+
+    .quick-links {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 28px;
+      font-size: 14.5px;
+    }
+
+    /* ── Divider between affiliations and research content ── */
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: 20px 0;
+    }
+
+    /* ── Research statement + interests ── */
+    .intro-block {
+      font-size: 14.5px;
+      margin-bottom: 24px;
+      line-height: 1.65;
+    }
+    .intro-block p { margin-bottom: 6px; }
+
+    /* ── Section headings ── */
+    .section {
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-size: 16px;
+      font-weight: 700;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--accent);
+      margin-bottom: 12px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* Lists */
+    ol.pubs, ol.events, ol.media {
+      padding-left: 20px;
+      font-size: 14.5px;
+    }
+
+    ol.pubs li,
+    ol.events li,
+    ol.media li {
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+
+    .paper-title {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .coauthors { color: var(--muted); }
+    .venue     { color: var(--muted); }
+    .extra     { color: var(--muted); font-style: italic; }
+
+    .small-links {
+      font-size: 13.5px;
+      margin-top: 2px;
+    }
+    .small-links a { color: var(--link); }
+
+    /* Footer */
+    .footer {
+      font-size: 12.5px;
+      color: var(--light);
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 780px) {
+      .page-body {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+        padding: 20px;
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        max-height: none;
+      }
+      .portrait {
+        max-width: 120px;
+        margin-bottom: 0;
+      }
+      .main {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top nav -->
+  <header class="topbar">
+    <a class="topbar-name" href="#">Sanjay R Singh</a>
+    <nav>
+      <a href="#">Home</a>
+      <a href="https://sanjayrajsingh.github.io/files/CV_SinghSanjay.pdf" target="_blank" rel="noopener noreferrer">Curriculum Vitae</a>
+    </nav>
+  </header>
+
+  <div class="page-body">
+
+    <!-- Left sidebar: photo + icons -->
+    <aside class="sidebar">
+      <img class="portrait" src="files/profile.jpg" alt="Sanjay Raj Singh" />
+
+      <div class="icon-links">
+        <a class="icon-link gs"  href="https://scholar.google.com/citations?hl=en&user=w8Iq8XgAAAAJ" target="_blank" rel="noopener noreferrer" title="Google Scholar">GS</a>
+        <a class="icon-link cv"  href="https://sanjayrajsingh.github.io/files/CV_SinghSanjay.pdf"  target="_blank" rel="noopener noreferrer" title="Curriculum Vitae">CV</a>
+        <a class="icon-link sf"  href="https://www.frbsf.org/economic-research/economists/sanjay-singh/" target="_blank" rel="noopener noreferrer" title="SF Fed">SF</a>
+        <a class="icon-link ucd" href="https://economics.ucdavis.edu/people/srsi" target="_blank" rel="noopener noreferrer" title="UC Davis">UCD</a>
+        <a class="icon-link tw"  href="https://twitter.com/sanjayrajsingh" target="_blank" rel="noopener noreferrer" title="Twitter/X">&#x1D54F;</a>
+        <a class="icon-link li"  href="https://www.linkedin.com/in/time-series/" target="_blank" rel="noopener noreferrer" title="LinkedIn">in</a>
+      </div>
+    </aside>
+
+    <!-- Main content: everything on the right -->
+    <main class="main">
+
+      <div class="site-name">Sanjay Raj Singh</div>
+
+      <!-- Affiliations -->
+      <div class="affiliations">
+        <div class="affiliation">
+          <span class="role">Research Advisor</span>
+          Federal Reserve Bank of San Francisco<br>
+          San Francisco CA 94105<br>
+          Email: <a href="mailto:Sanjay.Singh@sf.frb.org">Sanjay.Singh@sf.frb.org</a><br>
+          Phone: (415)-974-3018
+        </div>
+
+        <div class="affiliation">
+          <span class="role">Associate Professor</span>
+          Department of Economics<br>
+          University of California<br>
+          Davis CA 95616<br>
+          Email: <a href="mailto:sjrsingh@ucdavis.edu">sjrsingh@ucdavis.edu</a><br>
+          Phone: (530)-752-9938
+        </div>
+      </div>
+
+      <!-- CV / Scholar quick links -->
+      <div class="quick-links">
+        <a href="https://sanjayrajsingh.github.io/files/CV_SinghSanjay.pdf" target="_blank" rel="noopener noreferrer">Curriculum Vitae</a>
+        <a href="https://scholar.google.com/citations?hl=en&user=w8Iq8XgAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- Research statement + interests -->
+      <div class="intro-block">
+        <p>
+          <strong><a href="https://sanjayrajsingh.github.io/files/ResearchStatement_Singh.pdf" target="_blank" rel="noopener noreferrer">Research Statement</a></strong>
+          &nbsp;<a href="https://sanjayrajsingh.github.io/files/ResearchStatement_Singh.pdf" target="_blank" rel="noopener noreferrer">[PDF]</a>
+          &nbsp;[July 2023]
+        </p>
+        <p><strong>Research Interests:</strong> Macroeconomics, International Finance, Productivity Growth</p>
+      </div>
+
+      <!-- Conferences -->
+      <section class="section">
+        <h2>Conferences I am helping organize</h2>
+        <ol class="events">
+          <li>
+            <a href="https://sanjayrajsingh.github.io/CFP/Call_WCWIF_2026.pdf" target="_blank" rel="noopener noreferrer">11th Annual West Coast Workshop in International Finance</a>.
+            <a href="https://sanjayrajsingh.github.io/CFP/WCWIF_2026_Agenda.pdf" target="_blank" rel="noopener noreferrer">Agenda</a>.<br>
+            <span class="venue">April 10, 2026</span>
+          </li>
+          <li>
+            <a href="https://www.frbsf.org/wp-content/uploads/2025-aepc-call-for-papers.pdf" target="_blank" rel="noopener noreferrer">2025 Asia Economic Policy Conference at SF Fed</a>.
+            <a href="https://www.frbsf.org/news-and-media/news-articles/research-spotlight/2025/08/agenda-set-for-2025-asia-economic-policy-conference/" target="_blank" rel="noopener noreferrer">Agenda</a>.<br>
+            <span class="venue">Nov 20–21, 2025</span>
+          </li>
+          <li>
+            <a href="https://treinelt.github.io/files/CfP_ExpectationsWorkshop.pdf" target="_blank" rel="noopener noreferrer">Behavioral Macro Conference at SF Fed</a>.
+            <a href="https://drive.google.com/file/d/134Dfn6EpJyeT1gS899wv3DgjKe4eN3uB/view" target="_blank" rel="noopener noreferrer">Agenda</a>.<br>
+            <span class="venue">October 27, 2025</span>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Policy / Blog Articles -->
+      <section class="section">
+        <h2>Policy / Blog Articles</h2>
+        <ol class="pubs">
+          <li>
+            <span class="paper-title"><a href="https://www.frbsf.org/research-and-insights/blog/sf-fed-blog/2025/09/30/introducing-weekly-labor-market-stress-indicator/" target="_blank" rel="noopener noreferrer">Introducing a Weekly Labor Market Stress Indicator</a></span><br>
+            <span class="coauthors">(with Òscar Jordà)</span><br>
+            <span class="venue">SF Fed Blog, September 30, 2025</span>
+          </li>
+          <li>
+            <span class="paper-title"><a href="https://www.frbsf.org/research-and-insights/publications/economic-letter/2025/08/tracking-labor-market-stress/" target="_blank" rel="noopener noreferrer">Tracking Labor Market Stress</a></span><br>
+            <span class="coauthors">(with Rohit Garimella and Òscar Jordà)</span><br>
+            <span class="venue">Federal Reserve Bank of San Francisco Economic Letter 2025-19, August 18, 2025</span>
+          </li>
+          <li>
+            <span class="paper-title"><a href="https://www.frbsf.org/research-and-insights/publications/economic-letter/2023/09/does-monetary-policy-have-long-run-effects/" target="_blank" rel="noopener noreferrer">Does Monetary Policy Have Long-run Effects?</a></span><br>
+            <span class="coauthors">(with Òscar Jordà and Alan M. Taylor)</span><br>
+            <span class="venue">Federal Reserve Bank of San Francisco Economic Letter 2023-23, September 5, 2023</span>
+          </li>
+          <li>
+            <span class="paper-title"><a href="https://cepr.org/voxeu/columns/longer-run-economic-consequences-pandemics" target="_blank" rel="noopener noreferrer">The Longer-Run Economic Consequences of Pandemics</a></span><br>
+            <span class="coauthors">(with Òscar Jordà and Alan M. Taylor)</span><br>
+            <span class="venue">VoxEU.org, April 8, 2020</span>
+          </li>
+          <li>
+            <span class="paper-title"><a href="https://www.imf.org/en/Publications/fandd/issues/2020/06/long-term-economic-impact-of-pandemics-jorda" target="_blank" rel="noopener noreferrer">The Long Economic Hangover of Pandemics</a></span><br>
+            <span class="coauthors">(with Òscar Jordà and Alan M. Taylor)</span><br>
+            <span class="venue">Finance and Development, June 2020, Vol. 57 No. 2: 12–15</span>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Working Papers -->
+      <section class="section">
+        <h2>Working Papers</h2>
+        <ol class="pubs">
+          <li>
+            <span class="paper-title"><a href="https://sanjayrajsingh.github.io/files/KMS_Latest.pdf" target="_blank" rel="noopener noreferrer">Can Models with Idiosyncratic Risk Solve the Equity Premium Puzzle? Redux</a></span><br>
+            <span class="coauthors">(with Gleb Kozliakov and Emile A. Marin)</span><br>
+            <span class="venue">March 2026</span>
+          </li>
+          <li>
+            <span class="paper-title"><a href="https://sanjayrajsingh.github.io/files/MarinSingh_IMER.pdf" target="_blank" rel="noopener noreferrer">Incomplete Markets and Exchange Rates</a></span><br>
+            <span class="coauthors">(with Emile A. Marin)</span><br>
+            <span class="venue">December 2025</span><br>
+            <span class="small-links">Old version titled <a href="https://sanjayrajsingh.github.io/files/MarinSingh_LRSMA.pdf" target="_blank" rel="noopener noreferrer">Low Risk Sharing with Many Assets</a></span>
+          </li>
+          <li>
+            <span class="paper-title"><a href="https://sanjayrajsingh.github.io/files/GJS_LMSI.pdf" target="_blank" rel="noopener noreferrer">A New Labor Market Stress Indicator</a></span><br>
+            <span class="coauthors">(with Rohit Garimella and Òscar Jordà)</span><br>
+            <span class="venue">December 2025</span>
+          </li>
+          <li>
+            <span class="paper-title"><a href="https://sanjayrajsingh.github.io/files/CN_Paper.pdf" target="_blank" rel="noopener noreferrer">A Behavioral Foundation for the Investment Wedge</a></span><br>
+            <span class="coauthors">(with Jean-Paul L'Huillier and Pierlauro Lopez)</span><br>
+            <span class="venue">August 2025</span>
+          </li>
+          <li>
+            <span class="paper-title"><a href="https://sanjayrajsingh.github.io/files/APCDE.pdf" target="_blank" rel="noopener noreferrer">Asset Prices and Credit with Diagnostic Expectations</a></span><br>
+            <span class="coauthors">(with James Cloyne, Òscar Jordà, and Alan M. Taylor)</span><br>
+            <span class="venue">July 2025</span><br>
+            <span class="extra">Revise and Resubmit at Journal of Monetary Economics</span>
+          </li>
+          <li>
+            <span class="paper-title"><a href="https://sanjayrajsingh.github.io/files/ADS_Finance_Risk.pdf" target="_blank" rel="noopener noreferrer">The Financial Origins of Non-Fundamental Risk</a></span><br>
+            <span class="coauthors">(with Sushant Acharya and Keshav Dogra)</span><br>
+            <span class="venue">May 2023</span>
+          </li>
+          <li>
+            <span class="paper-title"><a href="https://sanjayrajsingh.github.io/files/GuSingh_Latest.pdf" target="_blank" rel="noopener noreferrer">Distribution of Market Power, Endogenous Growth, and Monetary Policy</a></span><br>
+            <span class="coauthors">(with Yumeng Gu)</span><br>
+            <span class="venue">February 2024</span>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Publications -->
+      <section class="section">
+        <h2>Publications / Articles Accepted for Publication</h2>
+        <ol class="pubs">
+          <li>
+            <span class="paper-title"><a href="https://sanjayrajsingh.github.io/files/Hyst_JST_Latest.pdf" target="_blank" rel="noopener noreferrer">The Long-run Effects of Monetary Policy</a></span><br>
+            <span class="venue">The Review of Economics and Statistics, forthcoming</span><br>
+            <span class="coauthors">(with Òscar Jordà and Alan M. Taylor)</span><br>
+            <span class="small-links">Won the Dr. Subir V Gokarn Best Paper Award at <a href="https://www.igidr.ac.in/macroeconomics-and-finance-conference-2023/" target="_blank" rel="noopener noreferrer">19th Macroeconomics and Finance Conference</a> · <a href="https://doi.org/10.3886/E205284V1" target="_blank" rel="noopener noreferrer">Replication Code</a></span>
+          </li>
+          <li>
+            <span class="paper-title"><a href="https://sanjayrajsingh.github.io/files/DE_NK_Mar_2023.pdf" target="_blank" rel="noopener noreferrer">Incorporating Diagnostic Expectations into the New Keynesian Framework</a></span><br>
+            <span class="venue">Review of Economic Studies, Volume 91, Issue 5, October 2024</span><br>
+            <span class="coauthors">(with Jean-Paul L'Huillier and Donghoon Yoo)</span><br>
+            <span class="small-links"><a href="https://zenodo.org/records/10884896" target="_blank" rel="noopener noreferrer">Replication Code</a></span>
+          </li>
+          <li>
+            <span class="paper-title"><a href="https://sanjayrajsingh.github.io/files/CBS_Draft.pdf" target="_blank" rel="noopener noreferrer">Understanding Persistent ZLB: Theory and Assessment</a></span><br>
+            <span class="venue">American Economic Journal: Macroeconomics, Volume 16, Issue 3, Pages 389–416, July 2024</span><br>
+            <span class="coauthors">(with Pablo Cuba-Borda)</span><br>
+            <span class="small-links"><a href="https://sanjayrajsingh.github.io/files/CBS_online_appendix.pdf" target="_blank" rel="noopener noreferrer">Online Appendix</a> · <a href="https://www.openicpsr.org/openicpsr/project/187821/version/V1/view" target="_blank" rel="noopener noreferrer">Replication Code</a></span>
+          </li>
+          <li>
+            <span class="paper-title"><a href="https://sanjayrajsingh.github.io/files/BPCLT_Aug2022_CS.pdf" target="_blank" rel="noopener noreferrer">Bond Premium Cyclicality and Liquidity Traps</a></span><br>
+            <span class="venue">The Review of Economic Studies, Volume 90, Issue 6, November 2023, Pages 2822–2879</span><br>
+            <span class="coauthors">(with Nicolas Caramp)</span><br>
+            <span class="small-links">Won the Best Paper Award at <a href="https://econdse.org/events-details?eventid=188" target="_blank" rel="noopener noreferrer">the Delhi Winter School 2020</a> · <a href="https://zenodo.org/records/10008394" target="_blank" rel="noopener noreferrer">Replication Code</a></span>
+          </li>
+          <li>
+            <span class="paper-title"><a href="https://sanjayrajsingh.github.io/files/JSK.pdf" target="_blank" rel="noopener noreferrer">Currency Areas, Labor Markets, and Regional Cyclical Sensitivity</a></span><br>
+            <span class="venue">IMF Economic Review, Vol. 72(1), pages 152–195, March 2024</span><br>
+            <span class="coauthors">(with Katheryn N. Russ and Jay C. Shambaugh)</span>
+          </li>
+          <li>
+            <span class="paper-title"><a href="https://sanjayrajsingh.github.io/files/Draft_June2023_FatasSingh.pdf" target="_blank" rel="noopener noreferrer">Supply or Demand? Policymakers' Confusion in the Presence of Hysteresis</a></span><br>
+            <span class="venue">European Economic Review, January 2024, 161, 104617</span><br>
+            <span class="coauthors">(with Antonio Fatás)</span><br>
+            <span class="small-links"><a href="https://ars.els-cdn.com/content/image/1-s2.0-S0014292123001774-mmc1.pdf" target="_blank" rel="noopener noreferrer">Replication Code</a></span>
+          </li>
+          <li>
+            <span class="paper-title"><a href="https://sanjayrajsingh.github.io/files/pandemics_jst_restat_final_feb2021_main.pdf" target="_blank" rel="noopener noreferrer">Longer-run Economic Consequences of Pandemics</a></span><br>
+            <span class="venue">Review of Economics and Statistics, Vol. 104(1), pp. 166–175, January 2022</span><br>
+            <span class="coauthors">(with Òscar Jordà and Alan M. Taylor)</span><br>
+            <span class="small-links"><a href="https://doi.org/10.3386/w26934" target="_blank" rel="noopener noreferrer">Replication Code</a></span>
+          </li>
+          <li>
+            <span class="paper-title"><a href="https://sanjayrajsingh.github.io/files/ohomp_2020.pdf" target="_blank" rel="noopener noreferrer">Output Hysteresis and Optimal Monetary Policy</a></span><br>
+            <span class="venue">Journal of Monetary Economics, Vol. 117, pp. 871–886, January 2021</span><br>
+            <span class="coauthors">(with Vaishali Garga)</span><br>
+            <span class="small-links"><a href="https://sanjayrajsingh.github.io/files/ohomp_onlineappendix.pdf" target="_blank" rel="noopener noreferrer">Online Appendix</a> · <a href="https://data.mendeley.com/datasets/39hhyrbbv4/1" target="_blank" rel="noopener noreferrer">Replication Code</a></span>
+          </li>
+          <li>
+            <span class="paper-title"><a href="https://sanjayrajsingh.github.io/files/loglin.pdf" target="_blank" rel="noopener noreferrer">Log-linear Approximation versus an Exact Solution at the ZLB in the New Keynesian Model</a></span><br>
+            <span class="venue">Journal of Economic Dynamics and Control, Vol. 105, pp. 21–43, August 2019</span><br>
+            <span class="coauthors">(with Gauti Eggertsson)</span><br>
+            <span class="small-links"><a href="https://www.dropbox.com/scl/fi/2us4r3f8xrk89i4n3w4hj/loglin_replication.zip?rlkey=3mdu20vfi9p2uiui3d06k4z5d&dl=0" target="_blank" rel="noopener noreferrer">Replication Code</a></span>
+          </li>
+          <li>
+            <span class="paper-title"><a href="https://sanjayrajsingh.github.io/files/The%20effect%20of%20foreign%20shocks%20on%20the%20Indian%20economy-Aemit%20Lakdawala%20%26%20Sanjay%20R%20Singh_Page%2024-77_IPF%202019.pdf" target="_blank" rel="noopener noreferrer">The Effect of Foreign Shocks on the Indian Economy</a></span><br>
+            <span class="venue">India Policy Forum 2019, Vol. 16: 1–47</span><br>
+            <span class="coauthors">(with Aeimit Lakdawala)</span>
+          </li>
+          <li>
+            <span class="paper-title"><a href="https://sanjayrajsingh.github.io/files/ssopen.pdf" target="_blank" rel="noopener noreferrer">A Contagious Malady? Open Economy Dimensions of Secular Stagnation</a></span><br>
+            <span class="venue">IMF Economic Review, Vol. 64(4), pp. 581–634, December 2016</span><br>
+            <span class="coauthors">(with Gauti Eggertsson, Neil Mehrotra and Larry Summers)</span>
+          </li>
+          <li>
+            <span class="paper-title">Tariffs and the Macroeconomy (<a href="https://oxfordre.com/economics/view/10.1093/acrefore/9780190625979.001.0001/acrefore-9780190625979-e-744" target="_blank" rel="noopener noreferrer">publisher's link</a>)</span><br>
+            <span class="venue">Oxford Research Encyclopedia in Economics and Finance, July 2023</span><br>
+            <span class="coauthors">(with Xiangtao Meng and Katheryn N. Russ)</span>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Discussions -->
+      <section class="section">
+        <h2>Discussions</h2>
+        <ol class="pubs">
+          <li>
+            Golden Fetters and the Causal Effects of Countercyclical Monetary Policy<br>
+            <span class="venue">K. J. Mitchener and G. Pina, West Coast Workshop in International Finance, 2018</span><br>
+            <span class="small-links">[<a href="https://sanjayrajsingh.github.io/discussions/singh_discussion_wcwif.pdf" target="_blank" rel="noopener noreferrer">discussion slides</a>]</span>
+          </li>
+          <li>
+            Multinational Firms, Trade and the Trade-Comovement Puzzle<br>
+            <span class="venue">G. Udupa, CAFRAL conference on Financial System and Macroeconomy in Emerging Economies, 2018</span><br>
+            <span class="small-links">[<a href="https://sanjayrajsingh.github.io/discussions/singh_discussion_cafral.pdf" target="_blank" rel="noopener noreferrer">discussion slides</a>]</span>
+          </li>
+          <li>
+            Taking away the Punch Bowl: Monetary Policy and Financial Instability<br>
+            <span class="venue">K. D. Sheedy, XXI Annual Inflation Targeting Conference, 2019</span><br>
+            <span class="small-links">[<a href="https://sanjayrajsingh.github.io/discussions/singh_discussionITC.pdf" target="_blank" rel="noopener noreferrer">discussion slides</a>]</span>
+          </li>
+          <li>
+            Zombie Firm Dynamics and China's Monetary Policy<br>
+            <span class="venue">W. Guo, D. Jia and T. W. Li, 11th Tsinghua Workshop in Macroeconomics, 2019</span><br>
+            <span class="small-links">[<a href="https://sanjayrajsingh.github.io/discussions/Singh_Discussion_Tsinghua.pdf" target="_blank" rel="noopener noreferrer">discussion slides</a>]</span>
+          </li>
+          <li>
+            Zombie Credit and (Dis-)inflation: Evidence from Europe<br>
+            <span class="venue">V. Acharya, M. Crosignani, T. Eisert and C. Eufinger, Bank of Finland and CEPR Joint Conference on Monetary Economics and Reality, 2019</span><br>
+            <span class="small-links">[<a href="https://sanjayrajsingh.github.io/discussions/singh_crosignani_discussion%20%281%29.pdf" target="_blank" rel="noopener noreferrer">discussion slides</a>]</span>
+          </li>
+          <li>
+            Foreign-currency exposures and the financial channel of exchange rates: Eroding monetary policy autonomy?<br>
+            <span class="venue">G. Georgiadis and F. Zhu, CEBRA-IFM Annual Conference, 2019</span><br>
+            <span class="small-links">[<a href="https://sanjayrajsingh.github.io/discussions/singh_cebra_discussion.pdf" target="_blank" rel="noopener noreferrer">discussion slides</a>]</span>
+          </li>
+          <li>
+            Dissecting Mechanisms of Financial Crises: Intermediation and Sentiment<br>
+            <span class="venue">A. Krishnamurthy and W. Li, CESifo Macro, Money and International Finance, 2021</span><br>
+            <span class="small-links">[<a href="https://sanjayrajsingh.github.io/discussions/singh_discussion_mmif2021.pdf" target="_blank" rel="noopener noreferrer">discussion slides</a>]</span>
+          </li>
+          <li>
+            Diagnostic Business Cycles<br>
+            <span class="venue">F. Bianchi, C. Ilut and H. Saijo, NBER Monetary Economics Spring 2022</span><br>
+            <span class="small-links">[<a href="https://sanjayrajsingh.github.io/discussions/dbc_singh_mes22.pdf" target="_blank" rel="noopener noreferrer">discussion slides</a>]</span>
+          </li>
+          <li>
+            Assessing Central Bank Commitment to Inflation Targeting: Evidence From Financial Market Expectations in India<br>
+            <span class="venue">V. Garga, A. Lakdawala and R. Sengupta, CAFRAL conference on Financial System and Macroeconomy in Emerging Economies, 2022</span>
+          </li>
+          <li>
+            Market Power and Monetary Policy Transmission<br>
+            <span class="venue">R. Duval, D. Furceri, R. Lee and M. Tavares, ASSA 2023</span>
+          </li>
+          <li>
+            Can Today's and Tomorrow's World Uniformly Gain from Carbon Taxation?<br>
+            <span class="venue">L. Kotlikoff, F. Kubler, A. Polbin, and S. Scheidegger, SF Fed Climate and the Business Cycle Conference, 2023</span><br>
+            <span class="small-links">[<a href="https://sanjayrajsingh.github.io/discussions/singh_discussionbcb.pdf" target="_blank" rel="noopener noreferrer">discussion slides</a>]</span>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Recent Media -->
+      <section class="section">
+        <h2>Recent Media</h2>
+        <ol class="media">
+          <li>
+            Jordà, Singh, &amp; Taylor, <strong>"The Long-Run Effects of Monetary Policy"</strong>
+            <a href="https://www.frbsf.org/research-and-insights/publications/working-papers/2023/06/the-long-run-effects-of-monetary-policy/" target="_blank" rel="noopener noreferrer">frbsf working paper</a><br>
+            <span class="small-links">Covered by <a href="https://www.bloomberg.com/news/articles/2023-09-05/rate-hikes-curb-output-for-at-least-a-decade-sf-fed-study-finds" target="_blank" rel="noopener noreferrer">Bloomberg</a>, <a href="https://www.ft.com/content/e9a1eeec-4cda-4e92-91fa-8996c8144c78" target="_blank" rel="noopener noreferrer">Financial Times</a> [1], <a href="https://www.ft.com/content/9f6fc7f2-fb09-4340-bb8b-dc2df6e0d65b" target="_blank" rel="noopener noreferrer">Financial Times</a> [2], <a href="https://twitter.com/financialtimes/status/1699343704730931467" target="_blank" rel="noopener noreferrer">Financial Times</a> [3]</span><br>
+            <span class="small-links">Summary at <a href="https://www.frbsf.org/research-and-insights/publications/economic-letter/2023/09/does-monetary-policy-have-long-run-effects/" target="_blank" rel="noopener noreferrer">FRBSF Economic Letter</a></span>
+          </li>
+          <li>
+            Jordà, Singh, &amp; Taylor, <strong>"Longer-run Economic Consequences of Pandemics"</strong>
+            <a href="https://drive.google.com/file/d/1euV3VdN6iq7hJlmEcM6e_7n2ScdQ1m13/view" target="_blank" rel="noopener noreferrer">w26934.pdf</a><br>
+            <span class="small-links">Covered by <a href="https://www.barrons.com/articles/how-worried-should-investors-be-about-the-coronavirus-pandemic-51585839903" target="_blank" rel="noopener noreferrer">Barron's</a>, <a href="https://www.bloomberg.com/opinion/articles/2020-04-05/when-plagues-pass-labor-gets-the-upper-hand" target="_blank" rel="noopener noreferrer">Bloomberg</a>, <a href="https://www.economist.com/finance-and-economics/2020/08/27/psychological-scars-of-downturns-could-depress-growth-for-decades" target="_blank" rel="noopener noreferrer">The Economist</a> [1], <a href="https://www.economist.com/graphic-detail/2021/01/16/the-after-effects-of-covid-19-will-be-felt-for-decades" target="_blank" rel="noopener noreferrer">The Economist</a> [2], <a href="https://www.reuters.com/article/us-health-coronavirus-cenbank-analysis/no-turning-back-after-central-bankers-seismic-stimulus-shift-idUSKBN21O1OR" target="_blank" rel="noopener noreferrer">Reuters</a>, <a href="https://www.telegraph.co.uk/business/2020/08/24/central-banks-prop-world-covid-pays/" target="_blank" rel="noopener noreferrer">The Telegraph</a></span><br>
+            <span class="small-links">Summary at <a href="https://voxeu.org/article/longer-run-economic-consequences-pandemics" target="_blank" rel="noopener noreferrer">VoxEU</a> and <a href="https://www.imf.org/en/Publications/fandd/issues/2020/06/long-term-economic-impact-of-pandemics-jorda" target="_blank" rel="noopener noreferrer">IMF Finance and Development</a></span>
+          </li>
+          <li>
+            Eggertsson, Mehrotra, Singh, &amp; Summers, <strong>"A Contagious Malady? Open Economy Dimensions of Secular Stagnation"</strong>
+            <a href="https://sanjayrajsingh.github.io/files/ssopen.pdf" target="_blank" rel="noopener noreferrer">published draft</a><br>
+            <span class="small-links">Covered by <a href="https://www.washingtonpost.com/news/wonk/wp/2016/07/07/the-world-economy-is-turning-japanese/" target="_blank" rel="noopener noreferrer">Washington Post</a>, <a href="https://archive.nytimes.com/krugman.blogs.nytimes.com/2016/06/20/tldr-and-modern-macroeconomics-wonkish/" target="_blank" rel="noopener noreferrer">Paul Krugman's Blog at NY Times</a>, <a href="https://economistsview.typepad.com/economistsview/2016/06/a-contagious-malady-open-economy-dimensions-of-secular-stagnation.html" target="_blank" rel="noopener noreferrer">Economist's View</a></span>
+          </li>
+        </ol>
+      </section>
+
+      <div class="footer">
+        Disclaimer: the material on this website does not necessarily represent the views of the Federal Reserve Bank of San Francisco or the Federal Reserve System.
+      </div>
+
+    </main>
+  </div>
+
+</body>
+</html>
