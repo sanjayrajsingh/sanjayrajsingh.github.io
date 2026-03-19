@@ -18,7 +18,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -29,19 +28,10 @@
       line-height: 1.5;
     }
 
-    a {
-      color: var(--link);
-      text-decoration: none;
-    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { color: var(--link-hover); text-decoration: underline; }
 
-    a:hover {
-      color: var(--link-hover);
-      text-decoration: underline;
-    }
-
-    .topbar {
-      display: none;
-    }
+    .topbar { display: none; }
 
     .wrapper {
       max-width: var(--max);
@@ -52,8 +42,8 @@
     .hero {
       background: #efefef;
       display: grid;
-      grid-template-columns: 520px 1fr;
-      gap: 72px;
+      grid-template-columns: 360px minmax(0, 1fr);
+      gap: 64px;
       align-items: start;
       padding: 20px 28px 30px;
       margin: 0 -24px 0;
@@ -81,15 +71,9 @@
     .icon-row {
       display: flex;
       align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-    }
-
-    .social-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
+      gap: 12px;
+      flex-wrap: nowrap;
+      white-space: nowrap;
     }
 
     .icon-link {
@@ -100,29 +84,21 @@
       flex-shrink: 0;
     }
 
-    .cv-bubble {
-      width: 46px;
-      height: 46px;
+    .cv-badge {
+      height: 44px;
+      padding: 0 18px;
       border-radius: 999px;
       background: #5d8ee6;
       color: #ffffff;
-      font-size: 15px;
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .cv-word {
-      color: #1f3b82;
+      font-size: 24px;
       font-family: Georgia, "Times New Roman", Times, serif;
-      font-size: 38px;
       font-weight: 400;
       line-height: 1;
-      margin-left: -4px;
     }
 
     .seal {
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       border-radius: 999px;
       border: 1px solid #bfc3c8;
       background: #ffffff;
@@ -138,27 +114,22 @@
     }
 
     .social {
-      width: 46px;
-      height: 46px;
+      width: 42px;
+      height: 42px;
       border-radius: 4px;
       color: #ffffff;
       font-weight: 700;
-      font-size: 20px;
+      font-size: 18px;
       line-height: 1;
     }
 
-    .social.x {
-      background: #40a7f4;
-    }
-
-    .social.in {
-      background: #2c66b8;
-      font-size: 18px;
-    }
+    .social.x { background: #40a7f4; }
+    .social.in { background: #2c66b8; font-size: 17px; }
 
     .hero-right {
       padding-top: 6px;
       font-size: 18px;
+      min-width: 0;
     }
 
     h1 {
@@ -204,13 +175,8 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .section.top-follow {
-      padding-top: 28px;
-    }
-
-    .section:last-of-type {
-      border-bottom: none;
-    }
+    .section.top-follow { padding-top: 28px; }
+    .section:last-of-type { border-bottom: none; }
 
     h2 {
       font-size: 1.45rem;
@@ -220,33 +186,24 @@
       font-family: Georgia, "Times New Roman", Times, serif;
     }
 
-    p {
-      margin: 0.4rem 0 0.9rem;
-    }
+    p { margin: 0.4rem 0 0.9rem; }
 
-    ol.publications,
-    ol.events,
-    ol.media {
+    ol.publications, ol.events, ol.media {
       margin: 0.3rem 0 0;
       padding-left: 1.35rem;
     }
 
-    ol.publications li,
-    ol.events li,
-    ol.media li {
+    ol.publications li, ol.events li, ol.media li {
       margin: 0 0 0.9rem;
       padding-left: 0.2rem;
     }
 
-    .paper-title,
-    .event-title {
+    .paper-title, .event-title {
       font-weight: 600;
       color: var(--accent);
     }
 
-    .coauthors,
-    .venue,
-    .extra {
+    .coauthors, .venue, .extra {
       color: var(--muted);
       font-size: 0.97rem;
     }
@@ -262,10 +219,14 @@
       font-size: 0.93rem;
     }
 
+    .disclaimer {
+      margin-top: 1.2rem;
+      color: var(--light);
+      font-size: 0.93rem;
+    }
+
     @media (max-width: 900px) {
-      .wrapper {
-        padding: 0 18px 40px;
-      }
+      .wrapper { padding: 0 18px 40px; }
 
       .hero {
         grid-template-columns: 1fr;
@@ -280,9 +241,12 @@
         margin-bottom: 18px;
       }
 
-      .hero-right,
-      .affiliation,
-      .quick-links {
+      .icon-row {
+        flex-wrap: wrap;
+        white-space: normal;
+      }
+
+      .hero-right, .affiliation, .quick-links {
         font-size: 16px;
       }
 
@@ -291,8 +255,8 @@
         margin-bottom: 12px;
       }
 
-      .cv-word {
-        font-size: 32px;
+      .cv-badge {
+        font-size: 22px;
       }
 
       .section.top-follow {
@@ -310,13 +274,9 @@
         <img class="portrait" src="files/profile.jpg" alt="Portrait of Sanjay Raj Singh" />
 
         <div class="icon-row">
-          <a class="icon-link cv-bubble" href="https://sanjayrajsingh.github.io/files/CV_SinghSanjay.pdf" target="_blank" rel="noopener noreferrer">CV</a>
-          <a class="icon-link cv-word" href="https://sanjayrajsingh.github.io/files/CV_SinghSanjay.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+          <a class="icon-link cv-badge" href="https://sanjayrajsingh.github.io/files/CV_SinghSanjay.pdf" target="_blank" rel="noopener noreferrer">CV</a>
           <a class="icon-link seal" href="https://www.frbsf.org/economic-research/economists/sanjay-singh/" target="_blank" rel="noopener noreferrer">SF</a>
           <a class="icon-link seal ucd" href="https://economics.ucdavis.edu/people/srsi" target="_blank" rel="noopener noreferrer">UCD</a>
-        </div>
-
-        <div class="social-row">
           <a class="icon-link social x" href="https://twitter.com/sanjayrajsingh" target="_blank" rel="noopener noreferrer">X</a>
           <a class="icon-link social in" href="https://www.linkedin.com/in/time-series/" target="_blank" rel="noopener noreferrer">in</a>
         </div>
@@ -443,7 +403,10 @@
       </ol>
     </section>
 
-    <footer class="footer">Last updated March 2026.</footer>
+    <footer class="footer">
+      Last updated March 2026.
+      <div class="disclaimer">Disclaimer: the material on this website does not necessarily represent the views of the Federal Reserve Bank of San Francisco or the Federal Reserve System.</div>
+    </footer>
   </main>
 </body>
 </html>
