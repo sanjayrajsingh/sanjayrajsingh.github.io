@@ -1,5 +1,392 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<title>Redirecting to https://ssingh.ucdavis.edu/</title>
-<meta http-equiv="refresh" content="0; URL=https://ssingh.ucdavis.edu/">
-<link rel="canonical" href="https://ssingh.ucdavis.edu/">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanjay Raj Singh</title>
+  <style>
+    :root {
+      --text: #1f2937;
+      --muted: #4b5563;
+      --light: #6b7280;
+      --line: #e5e7eb;
+      --bg: #ffffff;
+      --link: #1d4ed8;
+      --link-hover: #1e40af;
+      --accent: #111827;
+      --max: 980px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+    a:hover { color: var(--link-hover); text-decoration: underline; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0.9rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.98rem;
+    }
+
+    .wrapper {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 2rem;
+      align-items: start;
+      padding: 1rem 0 2rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .portrait {
+      width: 100%;
+      max-width: 220px;
+      aspect-ratio: 1 / 1.18;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #f8fafc;
+      display: block;
+    }
+
+    h1 {
+      margin: 0 0 0.35rem;
+      font-size: 2.3rem;
+      line-height: 1.15;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .subtitle {
+      font-size: 1.06rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .affiliations {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(230px, 1fr));
+      gap: 1.25rem;
+      margin: 1.2rem 0 1.1rem;
+    }
+
+    .affiliation {
+      padding-left: 0.9rem;
+      border-left: 3px solid var(--line);
+      font-size: 0.98rem;
+    }
+
+    .affiliation strong {
+      display: block;
+      color: var(--accent);
+      margin-bottom: 0.15rem;
+    }
+
+    .quick-links {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      margin-top: 0.85rem;
+      font-size: 0.98rem;
+    }
+
+    .section {
+      padding: 1.9rem 0 0.8rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section:last-of-type { border-bottom: none; }
+
+    h2 {
+      font-size: 1.45rem;
+      margin: 0 0 1rem;
+      color: var(--accent);
+    }
+
+    p { margin: 0.4rem 0 0.9rem; }
+
+    .muted { color: var(--light); }
+
+    ol.publications, ol.events, ol.media {
+      margin: 0.3rem 0 0;
+      padding-left: 1.35rem;
+    }
+
+    ol.publications li,
+    ol.events li,
+    ol.media li {
+      margin: 0 0 0.9rem;
+      padding-left: 0.2rem;
+    }
+
+    .paper-title,
+    .event-title {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .coauthors,
+    .venue,
+    .extra {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .small-links {
+      margin-top: 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    .footer {
+      padding-top: 1.75rem;
+      color: var(--light);
+      font-size: 0.93rem;
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait {
+        max-width: 180px;
+      }
+
+      .affiliations {
+        grid-template-columns: 1fr;
+      }
+
+      h1 { font-size: 1.95rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <div class="brand">Sanjay Raj Singh</div>
+      <div class="nav-links">
+        <a href="#about">Home</a>
+        <a href="files/cv.pdf" target="_blank" rel="noopener noreferrer">Curriculum Vitae</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrapper">
+    <section class="hero" id="about">
+      <div>
+        <img class="portrait" src="profile.jpg" alt="Portrait of Sanjay Raj Singh" />
+      </div>
+      <div>
+        <h1>Sanjay Raj Singh</h1>
+        <div class="subtitle">Macroeconomics · International Finance · Productivity Growth</div>
+
+        <div class="affiliations">
+          <div class="affiliation">
+            <strong>Research Advisor</strong>
+            Federal Reserve Bank of San Francisco<br>
+            San Francisco, CA 94105<br>
+            Email: <a href="mailto:sanjay.singh@sf.frb.org">sanjay.singh@sf.frb.org</a><br>
+            Phone: (415) 974-3018
+          </div>
+
+          <div class="affiliation">
+            <strong>Associate Professor</strong>
+            Department of Economics<br>
+            University of California, Davis<br>
+            Davis, CA 95616<br>
+            Email: <a href="mailto:sjrsingh@ucdavis.edu">sjrsingh@ucdavis.edu</a><br>
+            Phone: (530) 752-9938
+          </div>
+        </div>
+
+        <div class="quick-links">
+          <a href="files/cv.pdf" target="_blank" rel="noopener noreferrer">Curriculum Vitae</a>
+          <a href="https://scholar.google.com/citations?hl=en&user=w8Iq8XgAAAAJ&view_op=list_works&authuser=1&gmla=AJsN-F5zNoHjY8OoxRoZPpSuayo6_2nQtAcJ97AqHFF5ho9jQz_r1hDlJkCuj9k7qpKsiW28a3HXGL6aGOHs2lRzgjdj9TMtWVNJokuyDTnneOVFhaaHEQc" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          <a href="files/ResearchStatement_Singh.pdf" target="_blank" rel="noopener noreferrer">Research Statement</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Conferences I am helping organize</h2>
+      <ol class="events">
+        <li>
+          <span class="event-title"><a href="CFP/Call_WCWIF_2026.pdf" target="_blank" rel="noopener noreferrer">11th Annual West Coast Workshop in International Finance</a></span>.\n          <span class="small-links"><a href="CFP/WCWIF_2026_Agenda.pdf" target="_blank" rel="noopener noreferrer">Agenda</a></span><br>
+          <span class="venue">April 10, 2026</span>
+        </li>
+        <li>
+          <span class="event-title"><a href="https://www.frbsf.org/wp-content/uploads/2025-aepc-call-for-papers.pdf" target="_blank" rel="noopener noreferrer">2025 Asia Economic Policy Conference at SF Fed</a></span>.\n          <span class="small-links"><a href="https://www.frbsf.org/news-and-media/news-articles/research-spotlight/2025/08/agenda-set-for-2025-asia-economic-policy-conference/" target="_blank" rel="noopener noreferrer">Agenda</a></span><br>
+          <span class="venue">November 20–21, 2025</span>
+        </li>
+        <li>
+          <span class="event-title"><a href="https://treinelt.github.io/files/CfP_ExpectationsWorkshop.pdf" target="_blank" rel="noopener noreferrer">Behavioral Macro Conference at SF Fed</a></span>.\n          <span class="small-links"><a href="https://drive.google.com/file/d/134Dfn6EpJyeT1gS899wv3DgjKe4eN3uB/view" target="_blank" rel="noopener noreferrer">Agenda</a></span><br>
+          <span class="venue">October 27, 2025</span>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>Policy / Blog Articles</h2>
+      <ol class="publications">
+        <li>
+          <span class="paper-title"><a href="https://www.frbsf.org/research-and-insights/blog/sf-fed-blog/2025/09/30/introducing-weekly-labor-market-stress-indicator/" target="_blank" rel="noopener noreferrer">Introducing a Weekly Labor Market Stress Indicator</a></span><br>
+          <span class="coauthors">with Òscar Jordà</span><br>
+          <span class="venue">SF Fed Blog, September 30, 2025</span>
+        </li>
+        <li>
+          <span class="paper-title"><a href="https://www.frbsf.org/research-and-insights/publications/economic-letter/2025/08/tracking-labor-market-stress/" target="_blank" rel="noopener noreferrer">Tracking Labor Market Stress</a></span><br>
+          <span class="coauthors">with Rohit Garimella and Òscar Jordà</span><br>
+          <span class="venue">Federal Reserve Bank of San Francisco Economic Letter 2025-19, August 18, 2025</span>
+        </li>
+        <li>
+          <span class="paper-title"><a href="https://www.frbsf.org/research-and-insights/publications/economic-letter/2023/09/does-monetary-policy-have-long-run-effects/" target="_blank" rel="noopener noreferrer">Does Monetary Policy Have Long-run Effects?</a></span><br>
+          <span class="coauthors">with Òscar Jordà and Alan M. Taylor</span><br>
+          <span class="venue">Federal Reserve Bank of San Francisco Economic Letter 2023-23, September 5, 2023</span>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>Working Papers</h2>
+      <ol class="publications">
+        <li>
+          <span class="paper-title"><a href="files/KMS_Latest.pdf" target="_blank" rel="noopener noreferrer">Can Models with Idiosyncratic Risk Solve the Equity Premium Puzzle? Redux</a></span><br>
+          <span class="coauthors">with Gleb Kozliakov and Emile A. Marin</span><br>
+          <span class="venue">March 2026</span>
+        </li>
+        <li>
+          <span class="paper-title"><a href="files/MarinSingh_IMER.pdf" target="_blank" rel="noopener noreferrer">Incomplete Markets and Exchange Rates</a></span><br>
+          <span class="coauthors">with Emile A. Marin</span><br>
+          <span class="venue">December 2025</span><br>
+          <span class="small-links">Old version titled <a href="files/MarinSingh_LRSMA.pdf" target="_blank" rel="noopener noreferrer">Low Risk Sharing with Many Assets</a></span>
+        </li>
+        <li>
+          <span class="paper-title"><a href="files/GJS_LMSI.pdf" target="_blank" rel="noopener noreferrer">A New Labor Market Stress Indicator</a></span><br>
+          <span class="coauthors">with Rohit Garimella and Òscar Jordà</span><br>
+          <span class="venue">December 2025</span>
+        </li>
+        <li>
+          <span class="paper-title"><a href="files/CN_Paper.pdf" target="_blank" rel="noopener noreferrer">A Behavioral Foundation for the Investment Wedge</a></span><br>
+          <span class="coauthors">with Jean-Paul L'Huillier and Pierlauro Lopez</span><br>
+          <span class="venue">August 2025</span>
+        </li>
+        <li>
+          <span class="paper-title"><a href="files/APCDE.pdf" target="_blank" rel="noopener noreferrer">Asset Prices and Credit with Diagnostic Expectations</a></span><br>
+          <span class="coauthors">with James Cloyne, Òscar Jordà, and Alan M. Taylor</span><br>
+          <span class="venue">July 2025</span><br>
+          <span class="extra">Revise and Resubmit at Journal of Monetary Economics</span>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>Publications / Articles Accepted for Publication</h2>
+      <ol class="publications">
+        <li>
+          <span class="paper-title"><a href="files/Hyst_JST_Latest.pdf" target="_blank" rel="noopener noreferrer">The Long-run Effects of Monetary Policy</a></span><br>
+          <span class="coauthors">with Òscar Jordà and Alan M. Taylor</span><br>
+          <span class="venue">The Review of Economics and Statistics, forthcoming</span>
+        </li>
+        <li>
+          <span class="paper-title"><a href="files/DE_NK_Mar_2023.pdf" target="_blank" rel="noopener noreferrer">Incorporating Diagnostic Expectations into the New Keynesian Framework</a></span><br>
+          <span class="coauthors">with Jean-Paul L'Huillier and Donghoon Yoo</span><br>
+          <span class="venue">Review of Economic Studies, 91(5), October 2024</span>
+        </li>
+        <li>
+          <span class="paper-title"><a href="files/CBS_Draft.pdf" target="_blank" rel="noopener noreferrer">Understanding Persistent ZLB: Theory and Assessment</a></span><br>
+          <span class="coauthors">with Pablo Cuba-Borda</span><br>
+          <span class="venue">American Economic Journal: Macroeconomics, 16(3), July 2024</span>
+        </li>
+        <li>
+          <span class="paper-title"><a href="files/BPCLT_Aug2022_CS.pdf" target="_blank" rel="noopener noreferrer">Bond Premium Cyclicality and Liquidity Traps</a></span><br>
+          <span class="coauthors">with Nicolas Caramp</span><br>
+          <span class="venue">The Review of Economic Studies, 90(6), November 2023</span>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>Discussions</h2>
+      <ol class="publications">
+        <li>
+          <span class="paper-title">Golden Fetters and the Causal Effects of Countercyclical Monetary Policy</span><br>
+          <span class="venue">West Coast Workshop in International Finance, 2018</span>
+          <span class="small-links">[<a href="discussions/singh_discussion_wcwif.pdf" target="_blank" rel="noopener noreferrer">discussion slides</a>]</span>
+        </li>
+        <li>
+          <span class="paper-title">Diagnostic Business Cycles</span><br>
+          <span class="venue">NBER Monetary Economics Spring 2022</span>
+          <span class="small-links">[<a href="discussions/singh_discussion_wcwif.pdf" target="_blank" rel="noopener noreferrer">discussion slides</a>]</span>
+        </li>
+        <li>
+          <span class="paper-title">Can Today’s and Tomorrow’s World Uniformly Gain from Carbon Taxation?</span><br>
+          <span class="venue">SF Fed Climate and the Business Cycle Conference, 2023</span>
+          <span class="small-links">[<a href="#">discussion slides</a>]</span>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>Recent Media</h2>
+      <ol class="media">
+        <li>
+          Jordà, Singh, &amp; Taylor, <span class="paper-title">The Long-Run Effects of Monetary Policy</span>.
+          <span class="small-links"><a href="files/Hyst_JST_Latest.pdf" target="_blank" rel="noopener noreferrer">Working paper</a></span><br>
+          <span class="extra">Covered by Bloomberg and Financial Times; summary at FRBSF Economic Letter.</span>
+        </li>
+        <li>
+          Jordà, Singh, &amp; Taylor, <span class="paper-title">Longer-run Economic Consequences of Pandemics</span>.<br>
+          <span class="extra">Covered by Barron’s, Bloomberg, The Economist, Reuters, and The Telegraph; summary at VoxEU and IMF Finance &amp; Development.</span>
+        </li>
+      </ol>
+    </section>
+
+    <footer class="footer">
+      Last updated March 2026.
+    </footer>
+  </main>
+</body>
+</html>
