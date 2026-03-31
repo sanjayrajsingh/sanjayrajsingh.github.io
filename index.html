@@ -61,6 +61,39 @@
     .topbar nav a { font-size: 14px; color: var(--muted); }
     .topbar nav a:hover { color: var(--link); text-decoration: none; }
 
+        .dark-toggle {
+      background: none;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 13px;
+      cursor: pointer;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .dark-toggle:hover { background: var(--line); }
+ 
+    /* ── Dark mode ── */
+    body.dark {
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --light: #64748b;
+      --line: #334155;
+      --bg: #0f172a;
+      --link: #60a5fa;
+      --link-hover: #93c5fd;
+      --accent: #f1f5f9;
+      background: var(--bg);
+      color: var(--text);
+    }
+    body.dark .topbar  { background: #1e293b; }
+    body.dark .sidebar { background: #0f172a; }
+    body.dark .footer  { background: #1e293b; }
+
+    
     .page-body {
       display: grid;
       grid-template-columns: var(--sidebar-width) 1fr;
